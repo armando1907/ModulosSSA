@@ -19,6 +19,8 @@
                         <a class="nav-item nav-link active" href="inicioSecciones.php" aria-current="page">INICIO</a>
                         <a class="nav-item nav-link" href="vista_paramedicos.php">PARAMEDICOS</a>
                         <a class="nav-item nav-link" href="vista_urgencias.php">URGENCIAS</a>
+                        <a class="nav-item nav-link" href="vista_establecimientos.php">ESTABLECIMIENTOS</a>
+                        <a class="nav-item nav-link" href="vista_ambulancias.php">AMBULANCIAS</a>
                     </div>
                 </nav>
     <div class="container">

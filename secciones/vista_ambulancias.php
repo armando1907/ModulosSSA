@@ -4,7 +4,7 @@
   <form action="" method="post">
     <div class="card">
     <div class="card-header">
-      CRUD URGENCIAS
+      CRUD AMBULANCIAS
     </div>
     <div class="card-body">
         <br>
@@ -17,7 +17,7 @@
 <div class="col-md-7">
   <div class="card">
     <div class="card-header">
-      PANEL URGENCIAS
+      PANEL AMBULANCIAS
     </div>
     <div class="card-body">
         <br>
