@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Inicio - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">CRUD</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
+                        <li><a class="dropdown-item" href="#!">Actividad</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="login.html">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Inicio</div>
+                                <a class="nav-link" href="index.html">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Perfil
+                                </a>
+                            <div class="sb-sidenav-menu-heading">Modulos</div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Modulos
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario</a>
+                                    <a class="nav-link" href="establecimientos.html">Establecimientos</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Inicio de Sesion como:</div>
+                        Profesional Prehospitalario
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Establecimientos</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                            <li class="breadcrumb-item active">Establecimientos</li>
+                        </ol>
+                    </div>
+                       <div class="row">
+                            <div class="col-md-3">
+                                <form action="" method="post">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            CRUD Establecimientos
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Id</label>
+                                                <input type="text"
+                                                class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
+                                            </div>
+                                                Hospital Publico:
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital General Tijuana</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital General Tecate</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital General Playas de Rosarito</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital General Mexicali</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital General Ensenada</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Otro</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Otro">
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">ISSSTE Fray Junipero Serra</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">ISSSTE Mexicali</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">ISSSTE Ensenada</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">ISSSTECALI Tijuana</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">ISSSTECALI Mexicali</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label label class="form-check-label" for="">ISSSTECALI Ensenada</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital Materno Infantil Mexicali</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Hospital Materno Infantil Tijuana</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Otro</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Otro">
+                                            </div>
+                                                Hospital Privado:
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Cruz Roja Mexicana Delegacion Tijuana</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="" id="">
+                                                <label class="form-check-label" for="">Otro</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Otro">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Empresa de Traslados</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Empresa de Traslados">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Asociacion Civil</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Asociacion Civil">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Dependencia Gubernamental</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Dependencia Gubernamental">
+                                            </div>
+                                                Datos del Propietario:
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Nombre del Propietario o Razon Social</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre del Propietario o Razon Social">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">RFC</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="RFC">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">CURP</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Direccion</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Direccion">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Colonia</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Colonia">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Delegacion</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Delegacion">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Localidad</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Localidad">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Codigo Postal</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Codigo Postal">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Entidad Federativa</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entidad Federativa">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Entre Calle y Calle</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entre Calle y Calle">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Telefono</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Telefono">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Correo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo">
+                                            </div>
+                                                Datos del Establecimiento:
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Razon Social o Denominacion del Establecimiento</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Razon Social o Denominacion del Establecimiento">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">RFC</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="RFC">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Direccion</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Direccion">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Colonia</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Colonia">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Delegacion</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Delegacion">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Localidad</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Localidad">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Codigo Postal</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Codigo Postal">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Entidad Federativa</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entidad Federativa">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Entre Calle y Calle</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entre Calle y Calle">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Telefono</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Telefono">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Correo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Horario</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Dias de la Semana">
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="De 0:00am/pm A 0:00am/pm">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Fecha de Inicio de Actividades</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Fecha">
+                                            </div>
+                                                Representante Legal:
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Nombre Completo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre Completo">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">CURP</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Correo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo">
+                                            </div>
+                                                Persona Autorizada:
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Nombre Completo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre Completo">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">CURP</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Correo</label>
+                                                <input type="text"
+                                                class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo">
+                                            </div>
+                                        </div>
+                                            <div class="btn-group" role="group" aria-label="Button group name">
+                                                <button type="button" class="btn btn-success">Agregar registro</button>
+                                                <button type="button" class="btn btn-warning">Editar registro</button>
+                                                <button type="button" class="btn btn-danger">Borrar registro</button>
+                                            </div>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header">
+                                    Panel Establecimientos
+                                </div>
+                                <div class="card-body">
+                                    <br>
+                                    <div class="table-responsive">
+                                        <table class="table table-primary">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Hospital</th>
+                                                    <th scope="col">Empresa de Traslados</th>
+                                                    <th scope="col">Asociacion Civil</th>
+                                                    <th scope="col">Dependencia Gubernamental</th>
+                                                    <th scope="col">Propietario</th>
+                                                    <th scope="col">RFC</th>
+                                                    <th scope="col">CURP</th>
+                                                    <th scope="col">Direccion</th>
+                                                    <th scope="col">Colonia</th>
+                                                    <th scope="col">Delegacion</th>
+                                                    <th scope="col">Localidad</th>
+                                                    <th scope="col">Codigo Postal</th>
+                                                    <th scope="col">Entidad Federativa</th>
+                                                    <th scope="col">Entre Calle y Calle</th>
+                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">Correo</th>
+                                                    <th scope="col">Establecimiento</th>
+                                                    <th scope="col">RFC</th>
+                                                    <th scope="col">Direccion</th>
+                                                    <th scope="col">Colonia</th>
+                                                    <th scope="col">Delegacion</th>
+                                                    <th scope="col">Localidad</th>
+                                                    <th scope="col">Codigo Postal</th>
+                                                    <th scope="col">Entidad Federativa</th>
+                                                    <th scope="col">Entre Calle y Calle</th>
+                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">Correo</th>
+                                                    <th scope="col">Horario</th>
+                                                    <th scope="col">Inicio de Actividades</th>
+                                                    <th scope="col">Representante Legal</th>
+                                                    <th scope="col">CURP</th>
+                                                    <th scope="col">Correo</th>
+                                                    <th scope="col">Persona Autorizada</th>
+                                                    <th scope="col">CURP</th>
+                                                    <th scope="col">Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="">
+                                                    <td scope="row">1</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                    <td>*Datos*</td>
+                                                </tr>       
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
