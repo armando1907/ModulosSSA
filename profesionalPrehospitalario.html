@@ -9,6 +9,7 @@
         <title>Inicio - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/estiloCampos.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -69,251 +70,188 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
+                    <div class="container">
                         <h1 class="mt-4">Profesional Prehospitalario</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
                             <li class="breadcrumb-item active">Profesional Prehospitalario</li>
                         </ol>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-3">
-                        <form action="" method="post">
-                          <div class="card">
-                            <div class="card-header">
-                                            CRUD Profesional Prehospitalario
+                        <form class="row g-3" action="" method="post">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Apellido Paterno">
+                                </div>
                             </div>
-                            <div class="card-body">
-                              <div class="mb-3">
-                                <label for="" class="form-label">Id</label>
-                                  <input type="text"
-                                              class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
-                              </div>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Nombre</label>
-                                              <input type="text"
-                                              class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre completo">
-                              </div>
-                              <div class="mb-3">
-                                            <label for="" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electronico">
-                              </div>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Telefono</label>
-                                              <input type="text"
-                                              class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de telefono">
-                              </div>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Tecnico en Atencion Medica Prehospitalaria:</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Nivel Basico</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Nivel Intermedio</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Nivel Avanzado</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Medico</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Otro</label>
-                              </div>
-                                          <br>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Nivel de Certificacion:</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">CONOCER ECO0307.01</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Tecnico Superior Universitario</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Licenciatura</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Tecnico en Urgencias Medicas</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Otro</label>
-                              </div>
-                                          <br>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Capacitacion Continua:</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">BLS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">PHTLS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">ACLS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">AMLS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">PALS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">NALS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">PEPP</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                 <label class="form-check-label" for="">GEMS</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Otros</label>
-                              </div>
-                                          <br>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Años de Experiencia en el Sistema de Atencion Medica Prehospitalaria:</label>
-                                              <input type="text"
-                                              class="form-control" name="anios" id="anios" aria-describedby="helpId" placeholder="Años de experiencia">
-                              </div>
-                              <div class="mb-3">
-                                              <label for="" class="form-label">Municipio de Residencia</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Mexicali</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Tecate</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Tijuana</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Playas de Rosarito</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">Ensenada</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">San Quintin</label>
-                              </div>
-                              <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="" id="">
-                                            <label class="form-check-label" for="">San Felipe</label>
-                              </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Apellido Materno">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electrónico">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de teléfono">
+                                </div>
                             </div>
-                              <div class="btn-group" role="group" aria-label="Button group name">
-                                            <button type="button" class="btn btn-success">Agregar registro</button>
-                                            <button type="button" class="btn btn-warning">Editar registro</button>
-                                            <button type="button" class="btn btn-danger">Borrar registro</button>
-                              </div>
-                          </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Técnico en Atencion Medica Prehospitalaria:</label>
+                                    <select class="form-select" name="lenguajes" id="lang">
+                                        <option value="javascript">Nivel Básico</option>
+                                        <option value="php">Nivel Intermedio</option>
+                                        <option value="java">Nivel Avanzado</option>
+                                        <option value="golang">Médico</option>
+                                        <option value="python">Otro</option>                   
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="">Nivel de Certificación:</label>
+                                    <select class="form-select" name="lenguajes" id="lang">
+                                        <option value="javascript">CONOCER ECO0307.01</option>
+                                        <option value="php">Técnico Superior Universitario</option>
+                                        <option value="java">Licenciatura</option>
+                                        <option value="golang">Técnico en Urgencias Médicas</option>
+                                        <option value="python">Otro</option>                   
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label >Capacitación Continua:</label>
+                                    <select class="form-select" name="lenguajes" id="lang">
+                                        <option value="javascript">BLS</option>
+                                        <option value="php">PHTLS</option>
+                                        <option value="java">ACLS</option>
+                                        <option value="golang">AMLS</option>
+                                        <option value="python">PALS</option>
+                                        <option value="javascript">NALS</option>
+                                        <option value="php">PEPP</option>
+                                        <option value="java">GEMS</option>
+                                        <option value="golang">Otros</option>                
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label >Años de Experiencia:</label>
+                                    <input type="text" class="form-control" name="anios" id="anios" aria-describedby="helpId" placeholder="Años de experiencia">
+                                </div>
+                                <div class="col-md-4">
+                                    <label >Municipio de Residencia</label>
+                                <select class="form-select" name="lenguajes" id="lang">
+                                    <option value="javascript">Mexicali</option>
+                                    <option value="php">Tecate</option>
+                                    <option value="java">Tijuana</option>
+                                    <option value="golang">Playas de Rosarito</option>
+                                    <option value="python">Ensenada</option>
+                                    <option value="javascript">San Quintín</option>
+                                    <option value="php">San Felipe</option>              
+                                </select>
+                                </div>
+                            
+                                
+                                <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
+                                    <button type="button" class="btn btn-success">Agregar registro</button>
+                                    <button type="button" class="btn btn-warning">Editar registro</button>
+                                    <button type="button" class="btn btn-danger">Borrar registro</button>
+                                </div>
+                            </div>
+                            
+                            
+                               
+                                          
                         </form>
-                      </div>
-                      <div class="col-md-9">
-                        <div class="card">
-                          <div class="card-header">
-                                            Panel Profesional Prehospitalario
-                          </div>
-                          <div class="card-body">
-                            <div class="table-responsive">
-                              <table class="table table-primary">
-                                <thead>
+                        <br>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                              Panel Profesional Prehospitalario
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-primary">
+                                            <thead>
                                                 <tr>
-                                                  <th scope="col">Id</th>
-                                                  <th scope="col">Nombre</th>
-                                                  <th scope="col">Correo</th>
-                                                  <th scope="col">Telefono</th>
-                                                  <th scope="col">Tecnico en Atencion Medica Prehospitalaria</th>
-                                                  <th scope="col">Nivel de Certificacion</th>
-                                                  <th scope="col">Capacitacion Continua</th>
-                                                  <th scope="col">Años de Experiencia en el Sistema de Atencion Medica Prehospitalaria</th>
-                                                  <th scope="col">Municipio de Residencia</th>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Correo electrónico</th>
+                                                    <th scope="col">Teléfono</th>
+                                                    <th scope="col">Técnico en Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Nivel de Certificación</th>
+                                                    <th scope="col">Capacitación Continua</th>
+                                                    <th scope="col">Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Municipio de Residencia</th>
                                                 </tr>
-                                </thead>
-                                <tbody>
-                                                <tr class="">
-                                                  <td scope="row">1</td>
-                                                  <td>*Nombre*</td>
-                                                  <td>*Correo*</td>
-                                                  <td>*Telefono</td>
-                                                  <td>*Tecnico*</td>
-                                                  <td>*Nivel*</td>
-                                                  <td>*Capacitacion*</td>
-                                                  <td>*Años*</td>
-                                                  <td>*Municipio*</td>
-                                                </tr>
-                                                <tr class="">
-                                                  <td scope="row">1</td>
-                                                  <td>*Nombre*</td>
-                                                  <td>*Correo*</td>
-                                                  <td>*Telefono</td>
-                                                  <td>*Tecnico*</td>
-                                                  <td>*Nivel*</td>
-                                                  <td>*Capacitacion*</td>
-                                                  <td>*Años*</td>
-                                                  <td>*Municipio*</td>
-                                                </tr>
-                                                <tr class="">
-                                                  <td scope="row">1</td>
-                                                  <td>*Nombre*</td>
-                                                  <td>*Correo*</td>
-                                                  <td>*Telefono</td>
-                                                  <td>*Tecnico*</td>
-                                                  <td>*Nivel*</td>
-                                                  <td>*Capacitacion*</td>
-                                                  <td>*Años*</td>
-                                                  <td>*Municipio*</td>
-                                                </tr>
-                                </tbody>
-                              </table>
+                                            </thead>
+                                            <tbody>
+                                                  <tr class="">
+                                                    <td scope="row">1</td>
+                                                    <td>*Nombre*</td>
+                                                    <td>*Correo*</td>
+                                                    <td>*Telefono</td>
+                                                    <td>*Tecnico*</td>
+                                                    <td>*Nivel*</td>
+                                                    <td>*Capacitacion*</td>
+                                                    <td>*Años*</td>
+                                                    <td>*Municipio*</td>
+                                                  </tr>
+                                                  <tr class="">
+                                                    <td scope="row">1</td>
+                                                    <td>*Nombre*</td>
+                                                    <td>*Correo*</td>
+                                                    <td>*Telefono</td>
+                                                    <td>*Tecnico*</td>
+                                                    <td>*Nivel*</td>
+                                                    <td>*Capacitacion*</td>
+                                                    <td>*Años*</td>
+                                                    <td>*Municipio*</td>
+                                                  </tr>
+                                                  <tr class="">
+                                                    <td scope="row">1</td>
+                                                    <td>*Nombre*</td>
+                                                    <td>*Correo*</td>
+                                                    <td>*Telefono</td>
+                                                    <td>*Tecnico*</td>
+                                                    <td>*Nivel*</td>
+                                                    <td>*Capacitacion*</td>
+                                                    <td>*Años*</td>
+                                                    <td>*Municipio*</td>
+                                                  </tr>
+                                              </tbody>
+                                        </table>
+                                    </div>
+                                </div> 
                             </div>
-                          </div> 
                         </div>
-                      </div>
                     </div>
-                </main>
-                <br>
-                <footer class="py-4 bg-light mt-auto">
-                  <div class="container-fluid px-4">
-                      <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                        <div>
-                          <a href="#">Privacy Policy</a>
-                          &middot;
-                          <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                      </div>
-                  </div>
-                </footer>
-            </div>
-        </div>
+                    
+                    
+            
+            
+        </main>
+        <br>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+              <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                <div>
+                  <a href="#">&middot; Privacy Policy</a>
+                  &middot;
+                  <a href="#">Terms &amp; Conditions</a>
+                </div>
+              </div>
+          </div>
+        </footer>
+    </div>
+                    </div>
+                    
+                
+                    
+                    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -321,5 +259,7 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+      </div>
+      
     </body>
 </html>
