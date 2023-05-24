@@ -1,3 +1,56 @@
+<?php include('bd.php'); ?>
+
+<?php
+
+//lo de abajo es lo mismo que en el otro modulo, es un ejemplo nomas
+
+if($_POST){
+    $accion=$_POST['accion'];
+    $id=$_POST['id'];
+    $nombre=$_POST['nombre'];
+    $apellidop=$_POST['apellidop'];
+    $apellidom=$_POST['apellidom'];
+    $correo=$_POST['correo'];
+    $telefono=$_POST['telefono'];
+    $nivelTecnico=$_POST['nivelTecnico'];
+    $nivelCertificacion=$_POST['nivelCertificacion'];
+    $capacitacion=$_POST['capacitacion'];
+    $experiencia=$_POST['experiencia'];
+    $municipio=$_POST['municipio'];
+    switch($accion){
+        case 'insertar':
+            $objConexion=new Conexion();
+            $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
+            $objConexion->ejecutar($sql);
+        break;
+        case 'modificar':
+            //UPDATE `profesional` SET `nombre` = 'Modificado' WHERE `profesional`.`id` = 1;
+            $objConexion=new Conexion();
+            $sql="UPDATE `profesional` SET `nombre` = '$nombre', `apellidoP` = '$apellidop', `apellidoM` = '$apellidom', `correo` = '$correo', `telefono` = '$telefono', `nivelTecnico`='$nivelTecnico',`nivelCertificacion`='$nivelCertificacion',`capacitacion`='$capacitacion',`experiencia` = '$experiencia' WHERE `profesional`.`id` = $id;";
+            $objConexion->ejecutar($sql);
+        break;
+        case 'eliminar':
+            $objConexion=new Conexion();
+            //DELETE FROM `profesional` WHERE `profesional`.`id` = 36
+            $sql="DELETE FROM `profesional` WHERE `profesional`.`id` = $id";
+            $objConexion->ejecutar($sql);
+        break;
+
+    }
+   
+
+    
+}
+
+
+
+$objConexion=new Conexion();
+$profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
+// print_r($profesionales);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,20 +99,15 @@
                             <div class="sb-sidenav-menu-heading">Inicio</div>
                                 <a class="nav-link" href="index.html">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    Perfil
+                                    Página principal
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Modulos</div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                    Modulos
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario</a>
-                                    <a class="nav-link" href="establecimientos.html">Establecimientos</a>
-                                </nav>
-                            </div>
+                                <div class="sb-sidenav-menu-heading">Modulos</div>
+                          
+                                
+                          <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario<a>
+                          <a class="nav-link" href="establecimientos.php">Establecimientos</a>
+                      
+                  </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

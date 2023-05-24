@@ -1,7 +1,11 @@
-<?php include('configuracion/bd.php'); ?>
+<?php include('bd.php'); ?>
+
 <?php
+
+
 if($_POST){
-    print_r($_POST);
+    $accion=$_POST['accion'];
+    $id=$_POST['id'];
     $nombre=$_POST['nombre'];
     $apellidop=$_POST['apellidop'];
     $apellidom=$_POST['apellidom'];
@@ -12,19 +16,48 @@ if($_POST){
     $capacitacion=$_POST['capacitacion'];
     $experiencia=$_POST['experiencia'];
     $municipio=$_POST['municipio'];
+    switch($accion){
+        case 'insertar':
+            $objConexion=new Conexion();
+            $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
+            $objConexion->ejecutar($sql);
+        break;
+        case 'modificar':
+            //UPDATE `profesional` SET `nombre` = 'Modificado' WHERE `profesional`.`id` = 1;
+            $objConexion=new Conexion();
+            $sql="UPDATE `profesional` SET `nombre` = '$nombre', `apellidoP` = '$apellidop', `apellidoM` = '$apellidom', `correo` = '$correo', `telefono` = '$telefono', `nivelTecnico`='$nivelTecnico',`nivelCertificacion`='$nivelCertificacion',`capacitacion`='$capacitacion',`experiencia` = '$experiencia' WHERE `profesional`.`id` = $id;";
+            $objConexion->ejecutar($sql);
+        break;
+        case 'eliminar':
+            $objConexion=new Conexion();
+            //DELETE FROM `profesional` WHERE `profesional`.`id` = 36
+            $sql="DELETE FROM `profesional` WHERE `profesional`.`id` = $id";
+            $objConexion->ejecutar($sql);
+        break;
+        case 'buscar':
+            $objConexion=new Conexion();
+            //$sql="SELECT * FROM `profesional` WHERE `apellidoP`='$buscando'";
+            $busqueda=$objConexion->Consultar("SELECT * FROM `profesional` WHERE `apellidoP`='$apellidop',`id`='$id'");
+            //$objConexion->ejecutar($sql);
+        break;
 
-    $objConexion=new Conexion();
-    $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
-    $objConexion->ejecutar($sql);
+    }
+   
+
+    
 }
+
+
 
 $objConexion=new Conexion();
 $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
+
+
 // print_r($profesionales);
 
 ?>
 
-<!-- SELECT * FROM `profesional` -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +80,9 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form action="profesionalPrehospitalario.php" method="post" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <input name="search" class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -74,19 +107,14 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                             <div class="sb-sidenav-menu-heading">Inicio</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Perfil
+                                Página principal
                             </a>
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Modulos
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario<a>
-                                    <a class="nav-link" href="establecimientos.html">Establecimientos</a>
-                                </nav>
+                          
+                                
+                                    <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario<a>
+                                    <a class="nav-link" href="establecimientos.php">Establecimientos</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -183,9 +211,10 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                             
                                 
                                 <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    <button type="submit" class="btn btn-success">Agregar registro</button>
-                                    <button type="button" class="btn btn-warning">Editar registro</button>
-                                    <button type="button" class="btn btn-danger">Borrar registro</button>
+                                    <button type="submit" name="accion" value="insertar" class="btn btn-success">Agregar registro</button>
+                                    <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>
+                                    <button type="submit" name="accion" value="eliminar" class="btn btn-danger">Borrar registro</button>
+                                    <button type="submit" name="accion" value="buscar" class="btn btn-primary">Buscar registro</button>
                                 </div>
                             </div>
                             
@@ -219,6 +248,51 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                                             </thead>
                                             <tbody>
                                                 <?php foreach($profesionales as $profesional){ ?>
+                                                    <tr>
+                                                        <td><?php echo $profesional['id'] ?></td>
+                                                        <td><?php echo $profesional['nombre'] ?></td>
+                                                        <td><?php echo $profesional['apellidoP'] ?></td>
+                                                        <td><?php echo $profesional['apellidoM'] ?></td>
+                                                        <td><?php echo $profesional['correo'] ?></td>
+                                                        <td><?php echo $profesional['telefono'] ?></td>
+                                                        <td><?php echo $profesional['nivelTecnico'] ?></td>
+                                                        <td><?php echo $profesional['nivelCertificacion'] ?></td>
+                                                        <td><?php echo $profesional['capacitacion'] ?></td>
+                                                        <td><?php echo $profesional['experiencia'] ?></td>
+                                                        <td><?php echo $profesional['municipio'] ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div> 
+                            </div>
+                            <br>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                              Busqueda:
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-primary">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellido paterno</th>
+                                                    <th scope="col">Apellido Materno</th>
+                                                    <th scope="col">Correo electrónico</th>
+                                                    <th scope="col">Teléfono</th>
+                                                    <th scope="col">Técnico en Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Nivel de Certificación</th>
+                                                    <th scope="col">Capacitación Continua</th>
+                                                    <th scope="col">Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Municipio de Residencia</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($busqueda as $profesional){ ?>
                                                     <tr>
                                                         <td><?php echo $profesional['id'] ?></td>
                                                         <td><?php echo $profesional['nombre'] ?></td>
