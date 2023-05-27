@@ -2,6 +2,14 @@
 
 <?php
 
+$objConexion=new Conexion();
+$profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
+$apellido=[];
+
+if(!empty($_GET['id'])){
+  $id=$_GET['id'];
+  echo $id;
+}
 
 if($_POST){
     $accion=$_POST['accion'];
@@ -37,27 +45,14 @@ if($_POST){
         case 'buscar':
             $objConexion=new Conexion();
             //$sql="SELECT * FROM `profesional` WHERE `apellidoP`='$buscando'";
-            $busqueda=$objConexion->Consultar("SELECT * FROM `profesional` WHERE `apellidoP`='$apellidop',`id`='$id'");
+            $apellido=$objConexion->Consultar("SELECT * FROM `profesional` WHERE `apellidoP`='$apellidop'");
             //$objConexion->ejecutar($sql);
         break;
 
-    }
-   
-
-    
+    } 
 }
 
-
-
-$objConexion=new Conexion();
-$profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
-
-
-// print_r($profesionales);
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +67,10 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/estiloCampos.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css ">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+        <script src="js/eventoModal.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -126,6 +125,127 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                    <br>
+                <table class="table table-striped tabladatatable dt-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido Paterno</th>
+          <th scope="col">Apellido Materno</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Técnico en Atención Médica Prehospitalaria</th>
+          <th scope="col">Nivel de Certificación</th>
+          <th scope="col">Capacitación Continua</th>
+          <th scope="col">Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
+          <th scope="col">Municipio de Residencia</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach($profesionales as $profesional){ ?>
+        <tr>
+            <th scope="row"><?php echo $profesional['id'] ?></th>
+            <td><?php echo $profesional['nombre'] ?></td>
+            <td><?php echo $profesional['apellidoP'] ?></td>
+            <td><?php echo $profesional['apellidoM'] ?></td>
+            <td><?php echo $profesional['correo'] ?></td>
+            <td><?php echo $profesional['telefono'] ?></td>
+            <td><?php echo $profesional['nivelTecnico'] ?></td>
+            <td><?php echo $profesional['nivelCertificacion'] ?></td>
+            <td><?php echo $profesional['capacitacion'] ?></td>
+            <td><?php echo $profesional['experiencia'] ?></td>
+            <td><?php echo $profesional['municipio'] ?></td>
+            <td>  
+              <a href="profesionalPrehospitalario.php?id=<?php=$profesional['id']?>" class="btn btn-warning btn-xs btnEditarCurso"><i class="fas fa-pencil-alt"></i></a>
+              <a href="profesionalPrehospitalario.php?id= <?php $profesional['id'] ?> " name="accion" class="btn btn-danger btn-xs btnEliminarCurso" idCurso="00389"><i class="fa fa-times-circle"></i></a>
+              <a href="profesionalPrehospitalario.php?id= <?php $profesional['id'] ?> " name="accion" class="btn btn-primary btn-xs btnShow" idCurso="00389" data-toggle="modal" data-target="#modalShow"> <i class="fa fa-eye"></i></a>
+            </td>
+            <?php } ?>
+            </tr>
+           </tbody>
+    </table>
+    <!-- Modal editar curso -->
+    <div class="modal fade" id="modalEditarCurso" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <form role="form" method="post" enctype="multipart/form-data">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><b>EDITAR CURSO</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="input-group">
+                  <select class="form-control input-lg" name="editarCurso" id="curso_E" required>
+                    <option value="">CURSO</option>
+                                            <option>RCP NIVEL COMUNITARIO</option>
+                                            <option>RCP NIVEL PROFESIONAL DE LA SALUD</option>
+                                            <option>PRIMER RESPONDIENTE EN PRIMEROS AUXILIOS </option>
+                                        </select>
+                  <select class="form-control input-lg" name="sector" id="sector_E">
+                    <option value="" disabled selected hidden>SECTOR</option>
+                    <option value="SECTOR PÚBLICO">SECTOR PÚBLICO</option>
+                    <option value="SECTOR PRIVADO">SECTOR PRIVADO</option>
+                    <option value="ASOCIACIÓN CIVIL">ASOCIACIÓN CIVIL</option>
+                    
+                  </select>
+                  <input type="hidden" name="idCurso" id="idCurso">
+                  <input type="hidden" name="jurisdiccion" id="jurisdiccion_E">
+                  <input type="hidden" name="instructor" id="instructor_E">
+                  <input type="text" name="dependencia" id="dependencia_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Dependencia" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="panel"><b>FECHA DE INICIO:</b></div>
+                <input type="date" name="inicio" id="inicio_E" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <div class="panel"><b>FECHA DE CONCLUSIÓN:</b></div>
+                <input type="date" name="conclusion" id="conclusion_E" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="number" name="alumnos" id="alumnos_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Número de alumnos" min="1" max="15" required>
+              </div>
+              <div class="form-group">
+                <label>LUGAR DE IMPARTICIÓN:</label>
+                <div class="input-group">
+                  <!-- <input type="text" name="calle" id="calle" class="form-control input-lg" style="text-transform:uppercase" placeholder="D" required >
+                  <input type="number" name="numExt" id="numExt" class="form-control input-lg" style="text-transform:uppercase" placeholder="122" required>
+                  <input type="text" name="numInt" id="numInt" class="form-control input-lg" style="text-transform:uppercase" placeholder="1233">      -->
+                  
+                  <input type="text" name="calle" id="calle_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Calle" required >
+                  <input type="number" name="numExt" id="numExt_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Número exterior" required>
+                  <input type="text" name="numInt" id="numInt_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Número interior">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" name="colonia" id="colonia_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Colonia" required>
+                  <input type="number" name="cp" id="cp_E" class="form-control input-lg" style="text-transform:uppercase" placeholder="Código postal" required>
+                  <select class="form-control input-lg" name="municipio" id="municipio_E" required>
+                    <option value="" disabled selected hidden>MUNICIPIO</option>
+                    <option value="TIJUANA">TIJUANA</option>
+                    <option value="ROSARITO">ROSARITO</option>
+                    <option value="MEXICALI">MEXICALI</option>
+                    <option value="TECATE">TECATE</option>
+                    <option value="ENSENADA">ENSENADA</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">GUARDAR</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">SALIR</button>
+            </div>
+                      </div>
+        </form>
+      </div>
+    </div> 
+    <?php//Tabla Bootstrap?>
+    
+                    <?php //Arriba es una prueba ?>
                     <div class="container">
                         <h1 class="mt-4">Profesional Prehospitalario</h1>
                         <ol class="breadcrumb mb-4">
@@ -292,19 +412,19 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($busqueda as $profesional){ ?>
+                                                <?php foreach($apellido as $registro){ ?>
                                                     <tr>
-                                                        <td><?php echo $profesional['id'] ?></td>
-                                                        <td><?php echo $profesional['nombre'] ?></td>
-                                                        <td><?php echo $profesional['apellidoP'] ?></td>
-                                                        <td><?php echo $profesional['apellidoM'] ?></td>
-                                                        <td><?php echo $profesional['correo'] ?></td>
-                                                        <td><?php echo $profesional['telefono'] ?></td>
-                                                        <td><?php echo $profesional['nivelTecnico'] ?></td>
-                                                        <td><?php echo $profesional['nivelCertificacion'] ?></td>
-                                                        <td><?php echo $profesional['capacitacion'] ?></td>
-                                                        <td><?php echo $profesional['experiencia'] ?></td>
-                                                        <td><?php echo $profesional['municipio'] ?></td>
+                                                        <td><?php echo $registro['id'] ?></td>
+                                                        <td><?php echo $registro['nombre'] ?></td>
+                                                        <td><?php echo $registro['apellidoP'] ?></td>
+                                                        <td><?php echo $registro['apellidoM'] ?></td>
+                                                        <td><?php echo $registro['correo'] ?></td>
+                                                        <td><?php echo $registro['telefono'] ?></td>
+                                                        <td><?php echo $registro['nivelTecnico'] ?></td>
+                                                        <td><?php echo $registro['nivelCertificacion'] ?></td>
+                                                        <td><?php echo $registro['capacitacion'] ?></td>
+                                                        <td><?php echo $registro['experiencia'] ?></td>
+                                                        <td><?php echo $registro['municipio'] ?></td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
