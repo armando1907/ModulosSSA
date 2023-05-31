@@ -4,35 +4,73 @@
 
 //lo de abajo es lo mismo que en el otro modulo, es un ejemplo nomas
 
+
+$objConexion=new Conexion();
+$profesionales=$objConexion->Consultar("SELECT * FROM `establecimientos`");
+$nombrepropie=[];
+// print_r($profesionales);
+
+if(!empty($_GET['idestablecimientos'])){
+    $idestablecimientos=$_GET['idestablecimientos'];
+    echo $idestablecimientos;
+  }
+
+
 if($_POST){
     $accion=$_POST['accion'];
-    $id=$_POST['id'];
-    $nombre=$_POST['nombre'];
-    $apellidop=$_POST['apellidop'];
-    $apellidom=$_POST['apellidom'];
-    $correo=$_POST['correo'];
-    $telefono=$_POST['telefono'];
-    $nivelTecnico=$_POST['nivelTecnico'];
-    $nivelCertificacion=$_POST['nivelCertificacion'];
-    $capacitacion=$_POST['capacitacion'];
-    $experiencia=$_POST['experiencia'];
-    $municipio=$_POST['municipio'];
+    $idestablecimientos=$_POST['idestablecimientos'];
+    $hospital=$_POST['hospital'];
+    $asosiacioncivil=$_POST['asosiacioncivil'];
+    $dependenciaguberna=$_POST['dependenciaguberna'];
+    $nombrepropie=$_POST['nombrepropie'];
+    $rfcpropie=$_POST['rfcpropie'];
+    $curppropie=$_POST['curppropie'];
+    $direccionpropie=$_POST['direccionpropie'];
+    $coloniapropie=$_POST['coloniapropie'];
+    $delegacionpropie=$_POST['delegacionpropie'];
+    $localidadpropie=$_POST['localidadpropie'];
+    $codigopostalpropie=$_POST['codigopostalpropie'];
+    $entidadfepropie=$_POST['entidadfepropie'];
+    $entercallepropie=$_POST['entercallepropie'];
+    $telefonopropie=$_POST['telefonopropie'];
+    $correopropie=$_POST['correopropie'];
+    $nombreestable=$_POST['nombreestable'];
+    $rfcestable=$_POST['rfcestable'];
+    $direccionestable=$_POST['direccionestable'];
+    $coloniaestable=$_POST['coloniaestable'];
+    $delegacionestable=$_POST['delegacionestable'];
+    $localidadestable=$_POST['localidadestable'];
+    $codigopostaestable=$_POST['codigopostaestable'];
+    $entidadestable=$_POST['entidadestable'];
+    $entrecalleestable=$_POST['entrecalleestable'];
+    $telefonoestable=$_POST['telefonoestable'];
+    $correoestable=$_POST['correoestable'];
+    $horarioestable=$_POST['horarioestable'];
+    $fechaestable=$_POST['fechaestable'];
+    $nomrepresestable=$_POST['nomrepresestable'];
+    $curprepreestable=$_POST['curprepreestable'];
+    $correoreprestable=$_POST['correoreprestable'];
+    $nomautoriestable=$_POST['nomautoriestable'];
+    $curpautoriestable=$_POST['curpautoriestable'];
+    $correoautoriestable=$_POST['correoautoriestable'];
+
+
     switch($accion){
         case 'insertar':
             $objConexion=new Conexion();
-            $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
+            $sql="INSERT INTO `establecimientos` (`idestablecimientos`, `hospital`, `asosiacioncivil`, `dependenciaguberna`, `nombrepropie`, `rfcpropie`, `curppropie`, `direccionpropie`, `coloniapropie`, `delegacionpropie`, `localidadpropie`, `codigopostalpropie`, `entidadfepropie`, `entercallepropie`, `telefonopropie`, `correopropie`, `nombreestable`, `rfcestable`, `direccionestable`, `coloniaestable`, `delegacionestable`,`localidadestable`,`codigopostaestable`, `entidadestable`, `entrecalleestable`, `telefonoestable`, `correoestable`, `horarioestable`, `fechaestable`, `nomrepresestable`, `curprepreestable`, `correoreprestable`, `nomautoriestable`, `curpautoriestable`, `correoautoriestable`) VALUES (NULL,'$hospital','$asosiacioncivil','$dependenciaguberna','$nombrepropie','$rfcpropie','$curppropie','$direccionpropie','$coloniapropie','$delegacionpropie','$localidadpropie','$codigopostalpropie','$entidadfepropie','$entercallepropie','$telefonopropie','$correopropie','$nombreestable','$rfcestable','$direccionestable','$coloniaestable','$delegacionestable','$localidadestable','$codigopostaestable','$entidadestable','$entrecalleestable','$telefonoestable','$correoestable','$horarioestable','$fechaestable','$nomrepresestable','$curprepreestable','$correoreprestable','$nomautoriestable','$curpautoriestable','$correoautoriestable');";
             $objConexion->ejecutar($sql);
         break;
         case 'modificar':
             //UPDATE `profesional` SET `nombre` = 'Modificado' WHERE `profesional`.`id` = 1;
             $objConexion=new Conexion();
-            $sql="UPDATE `profesional` SET `nombre` = '$nombre', `apellidoP` = '$apellidop', `apellidoM` = '$apellidom', `correo` = '$correo', `telefono` = '$telefono', `nivelTecnico`='$nivelTecnico',`nivelCertificacion`='$nivelCertificacion',`capacitacion`='$capacitacion',`experiencia` = '$experiencia' WHERE `profesional`.`id` = $id;";
+            $sql="UPDATE `establecimientos` SET `hospital` = '$hospital', `asosiacioncivil` = '$asosiacioncivil', `dependenciaguberna` = '$dependenciaguberna', `nombrepropie` = '$nombrepropie', `rfcpropie` = '$rfcpropie', `curppropie`='$curppropie',`direccionpropie`='$direccionpropie',`coloniapropie`='$coloniapropie',`delegacionpropie` = '$delegacionpropie',`codigopostalpropie` = '$codigopostalpropie',`entidadfepropie` = '$entidadfepropie',`entercallepropie` = '$entercallepropie',`telefonopropie` = '$telefonopropie',`correopropie` = '$correopropie',`nombreestable` = '$nombreestable',`rfcestable` = '$rfcestable',`direccionestable` = '$direccionestable',`coloniaestable` = '$coloniaestable',`delegacionestable` = '$delegacionestable',`codigopostaestable` = '$codigopostaestable',`entidadestable` = '$entidadestable',`entrecalleestable` = '$entrecalleestable',`telefonoestable` = '$telefonoestable',`correoestable` = '$correoestable',`horarioestable` = '$horarioestable',`fechaestable` = '$fechaestable',`nomrepresestable` = '$nomrepresestable',`curprepreestable` = '$curprepreestable',`correoreprestable` = '$correoreprestable',`nomautoriestable` = '$nomautoriestable',`curpautoriestable` = '$curpautoriestable',`correoautoriestable` = '$correoautoriestable' WHERE `establecimientos`.`idestablecimientos` = $idestablecimientos;";
             $objConexion->ejecutar($sql);
         break;
         case 'eliminar':
             $objConexion=new Conexion();
             //DELETE FROM `profesional` WHERE `profesional`.`id` = 36
-            $sql="DELETE FROM `profesional` WHERE `profesional`.`id` = $id";
+            $sql="DELETE FROM `establecimientos` WHERE `establecimientos`.`idestablecimientos` = $idestablecimientos";
             $objConexion->ejecutar($sql);
         break;
 
@@ -41,12 +79,6 @@ if($_POST){
 
     
 }
-
-
-
-$objConexion=new Conexion();
-$profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
-// print_r($profesionales);
 
 ?>
 
@@ -127,17 +159,9 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                         <form class="row g-3" action="" method="post">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
+                                <input type="text" class="form-control" name="idestablecimientos" id="idestablecimientos" aria-describedby="helpId" placeholder="Id establecimientos">
                             </div>
-                            <div class="col-md-4">
-                                <label class="" for="">Seleccione el tipo de establecimiento que registrará:</label>
-                                                <select class="form-select" name="lenguajes" id="lang">
-                                                    <option value="javascript">Hospital</option>
-                                                    <option value="php">Empresa de Traslados</option>
-                                                    <option value="java">Asociación Civil</option>
-                                                    <option value="golang">Dependencia Gubernamental</option>                
-                                                </select>
-                            </div>
+                            
                             <div class="col-md-4">
                                 <label class="" for="">Hospital Publico:</label>
                                                 <select class="form-select" name="lenguajes" id="lang">
@@ -170,7 +194,7 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                name="telefono" id="telefono" aria-describedby="helpId" placeholder="Empresa de Traslados">
+                                                name="empresatranslado" id="empresatranslado" aria-describedby="helpId" placeholder="Empresa de Traslados">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
@@ -189,15 +213,15 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                                 <div class="col-md-4">
                                 
                                     <input class="form-control" type="text"
-                                                     name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre del Propietario o Razón Social">
+                                                     name="nombrepropie" id="nombrepropie" aria-describedby="helpId" placeholder="Nombre del Propietario o Razón Social">
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control" type="text"
-                                    name="telefono" id="telefono" aria-describedby="helpId" placeholder="RFC">
+                                    name="rfcpropie" id="rfcpropie" aria-describedby="helpId" placeholder="RFC">
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control" type="text"
-                                                     name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                                     name="curppropie" id="curppropie" aria-describedby="helpId" placeholder="CURP">
                                 </div>
                             </div>
                             
@@ -206,45 +230,45 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                             
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Dirección">
+                                                 name="direccionpropie" id="direccionpropie" aria-describedby="helpId" placeholder="Dirección">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Colonia">
+                                                 name="coloniapropie" id="coloniapropie" aria-describedby="helpId" placeholder="Colonia">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Delegación">
-                            </div>
-                        </div> 
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Localidad">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                name="telefono" id="telefono" aria-describedby="helpId" placeholder="Código Postal">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entidad Federativa">
+                                                 name="delegacionpropie" id="delegacionpropie" aria-describedby="helpId" placeholder="Delegación">
                             </div>
                         </div> 
                         <div class="row">
                             
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entre Calle y Calle">
+                                                 name="localidadpropie" id="localidadpropie" aria-describedby="helpId" placeholder="Localidad">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Teléfono">
+                                                name="codigopostalpropie" id="codigopostalpropie" aria-describedby="helpId" placeholder="Código Postal">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo electrónico">
+                                                 name="entidadfepropie" id="entidadfepropie" aria-describedby="helpId" placeholder="Entidad Federativa">
+                            </div>
+                        </div> 
+                        <div class="row">
+                            
+                            <div class="col-md-4">
+                                <input class="form-control" type="text"
+                                                name="entercallepropie" id="entercallepropie" aria-describedby="helpId" placeholder="Entre Calle y Calle">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text"
+                                                 name="telefonopropie" id="telefonopropie" aria-describedby="helpId" placeholder="Teléfono">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text"
+                                 name="correopropie" id="correopropie" aria-describedby="helpId" placeholder="Correo electrónico">
                             </div>
                         </div> 
                         
@@ -256,15 +280,15 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
    
                                            
                                     <input class="form-control" type="text"
-                                     name="telefono" id="telefono" aria-describedby="helpId" placeholder="Razón Social o Denominación del Establecimiento">
+                                     name="nombreestable" id="nombreestable" aria-describedby="helpId" placeholder="Razón Social o Denominación del Establecimiento">
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control" type="text"
-                                     name="telefono" id="telefono" aria-describedby="helpId" placeholder="RFC">
+                                     name="rfcestable" id="rfcestable" aria-describedby="helpId" placeholder="RFC">
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control" type="text"
-                                                     name="telefono" id="telefono" aria-describedby="helpId" placeholder="Dirección">
+                                                     name="direccionestable" id="direccionestable" aria-describedby="helpId" placeholder="Dirección">
                                 </div>
                             </div>
                             
@@ -273,81 +297,82 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                             
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Colonia">
+                                                 name="coloniaestable" id="coloniaestable" aria-describedby="helpId" placeholder="Colonia">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Delegación">
+                                                 name="delegacionestable" id="delegacionestable" aria-describedby="helpId" placeholder="Delegación">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Dirección">
+                                                 name="localidadestable" id="localidadestable" aria-describedby="helpId" placeholder="Localidad">
                             </div>
+                            
                         </div>         
                         <div class="row">
                             
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Código Postal">
+                                                 name="codigopostaestable" id="codigopostaestable" aria-describedby="helpId" placeholder="Código Postal">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entidad Federativa">
+                                                 name="entidadestable" id="entidadestable" aria-describedby="helpId" placeholder="Entidad Federativa">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Entre Calle y Calle">
+                                                 name="entrecalleestable" id="entrecalleestable" aria-describedby="helpId" placeholder="Entre Calle y Calle">
                             </div>
                         </div>            
                         <div class="row">
                             
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Teléfono">
+                                                 name="telefonoestable" id="telefonoestable" aria-describedby="helpId" placeholder="Teléfono">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                                 name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo electrónico">
+                                                 name="correoestable" id="correoestable" aria-describedby="helpId" placeholder="Correo electrónico">
                             </div>
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                name="telefono" id="telefono" aria-describedby="helpId" placeholder="Horario">
+                                name="horarioestable" id="horarioestable" aria-describedby="helpId" placeholder="Horario">
                             </div>
                         </div>                 
                         <div class="row">
                            
                             <div class="col-md-4">
                                 <input class="form-control" type="text"
-                                name="telefono" id="telefono" aria-describedby="helpId" placeholder="Fecha de inicio de actividades">
+                                name="fechaestable" id="fechaestable" aria-describedby="helpId" placeholder="Fecha de inicio de actividades">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre del Representante Legal">
+                                <input class="form-control" type="text" name="nomrepresestable" id="nomrepresestable" aria-describedby="helpId" placeholder="Nombre del Representante Legal">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                <input class="form-control" type="text" name="curprepreestable" id="curprepreestable" aria-describedby="helpId" placeholder="CURP">
                             </div>
                         </div>  
                         <div class="row">
                             
                             <div class="col-md-4">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo electrónico">
+                                <input class="form-control" type="text" name="correoreprestable" id="correoreprestable" aria-describedby="helpId" placeholder="Correo electrónico">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Nombre de la Persona Autorizada">
+                                <input class="form-control" type="text" name="nomautoriestable" id="nomautoriestable" aria-describedby="helpId" placeholder="Nombre de la Persona Autorizada">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="CURP">
+                                <input class="form-control" type="text" name="curpautoriestable" id="curpautoriestable" aria-describedby="helpId" placeholder="CURP">
                             </div>
                         </div>                 
                         <div class="row">
                             
                             <div class="col-md-6">
-                                <input class="form-control" type="text" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Correo electrónico">
+                                <input class="form-control" type="text" name="correoautoriestable" id="correoautoriestable" aria-describedby="helpId" placeholder="Correo electrónico">
                             </div>
                             <div class="btn-group col-md-6" role="group" aria-label="Button group name">
-                                <button type="button" class="btn btn-success">Agregar registro</button>
-                                <button type="button" class="btn btn-warning">Editar registro</button>
-                                <button type="button" class="btn btn-danger">Borrar registro</button>
+                                <button type="submit" name="accion" value="insertar" class="btn btn-success">Agregar registro</button>
+                                <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>
+                                <button type="submit" name="accion" value="eliminar" class="btn btn-danger">Borrar registro</button>
                             </div>
                         </div> 
                                         
@@ -404,44 +429,47 @@ $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="">
-                                                    <td scope="row">1</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                    <td>*Datos*</td>
-                                                </tr>       
+                                                <?php foreach($profesionales as $establecimientos){ ?>
+                                                    <tr>
+                                                        <td><?php echo $establecimientos['idestablecimientos'] ?></td>
+                                                        <td><?php echo $establecimientos['hospital'] ?></td>
+                                                        <td><?php echo $establecimientos['empresatranslado'] ?></td>
+                                                        <td><?php echo $establecimientos['asosiacioncivil'] ?></td>
+                                                        <td><?php echo $establecimientos['dependenciaguberna'] ?></td>
+                                                        <td><?php echo $establecimientos['nombrepropie'] ?></td>
+                                                        <td><?php echo $establecimientos['rfcpropie'] ?></td>
+                                                        <td><?php echo $establecimientos['curppropie'] ?></td>
+                                                        <td><?php echo $establecimientos['direccionpropie'] ?></td>
+                                                        <td><?php echo $establecimientos['coloniapropie'] ?></td>
+                                                        <td><?php echo $establecimientos['delegacionpropie'] ?></td>
+                                                        <td><?php echo $establecimientos['localidadpropie'] ?></td>
+                                                        <td><?php echo $establecimientos['codigopostalpropie'] ?></td>
+                                                        <td><?php echo $establecimientos['entidadfepropie'] ?></td>
+                                                        <td><?php echo $establecimientos['entercallepropie'] ?></td>
+                                                        <td><?php echo $establecimientos['telefonopropie'] ?></td>
+                                                        <td><?php echo $establecimientos['correopropie'] ?></td>
+                                                        <td><?php echo $establecimientos['nombreestable'] ?></td>
+                                                        <td><?php echo $establecimientos['rfcestable'] ?></td>
+                                                        <td><?php echo $establecimientos['direccionestable'] ?></td>
+                                                        <td><?php echo $establecimientos['coloniaestable'] ?></td>
+                                                        <td><?php echo $establecimientos['delegacionestable'] ?></td>
+                                                        <td><?php echo $establecimientos['localidadestable'] ?></td>
+                                                        <td><?php echo $establecimientos['codigopostaestable'] ?></td>
+                                                        <td><?php echo $establecimientos['entidadestable'] ?></td>
+                                                        <td><?php echo $establecimientos['entrecalleestable'] ?></td>
+                                                        <td><?php echo $establecimientos['telefonoestable'] ?></td>
+                                                        <td><?php echo $establecimientos['correoestable'] ?></td>
+                                                        <td><?php echo $establecimientos['horarioestable'] ?></td>
+                                                        <td><?php echo $establecimientos['fechaestable'] ?></td>
+                                                        <td><?php echo $establecimientos['nomrepresestable'] ?></td>
+                                                        <td><?php echo $establecimientos['curprepreestable'] ?></td>
+                                                        <td><?php echo $establecimientos['correoreprestable'] ?></td>
+                                                        <td><?php echo $establecimientos['nomautoriestable'] ?></td>
+                                                        <td><?php echo $establecimientos['curpautoriestable'] ?></td>
+                                                        <td><?php echo $establecimientos['correoautoriestable'] ?></td>
+
+                                                    </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

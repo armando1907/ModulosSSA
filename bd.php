@@ -9,7 +9,7 @@ class conexion{
 
     public function __construct(){
         try{
-            $this->conexion=new PDO("mysql:host=$this->servidor;dbname=datassa",$this->usuario,$this->contrasenia);
+            $this->conexion=new PDO("mysql:host=$this->servidor;dbname=datassa3",$this->usuario,$this->contrasenia);
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         }
