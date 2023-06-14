@@ -6,6 +6,12 @@ $objConexion=new Conexion();
 $profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
 $apellido=[];
 
+if(isset($_GET['borrar'])){
+    $objConexion=new Conexion();
+    $sql="DELETE FROM `profesional` WHERE `profesional`.`id` =".$_GET['borrar'];
+    $objConexion->ejecutar($sql);
+}
+
 if(!empty($_GET['id'])){
   $id=$_GET['id'];
   echo $id;
@@ -262,7 +268,6 @@ if($_POST){
                                     <th>Capacitación Continua</th>
                                     <th>Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
                                     <th>Municipio de Residencia</th>
-                                    <th>Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -280,7 +285,12 @@ if($_POST){
                                             <td><?php echo $profesional['experiencia'] ?></td>
                                             <td><?php echo $profesional['municipio'] ?></td>
                                             <td>  
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-pencil-alt"></i></button>
+                                            <td>  
+                                            <a href="modificacionP.php?editar=<?php echo $profesional['id']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                            <td>
+                                            <a href="profesionalPrehospitalario.php?borrar=<?php echo $profesional['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -291,89 +301,7 @@ if($_POST){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form class="row g-3" action="profesionalPrehospitalario.php" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="apellidop" id="nombre" aria-describedby="helpId" placeholder="Apellido Paterno">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="apellidom" id="nombre" aria-describedby="helpId" placeholder="Apellido Materno">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electrónico">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de teléfono">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label>Técnico en Atencion Medica Prehospitalaria:</label>
-                                    <select class="form-select" name="nivelTecnico" id="lang">
-                                        <option value="basico">Nivel Básico</option>
-                                        <option value="intermedio">Nivel Intermedio</option>
-                                        <option value="avanzado">Nivel Avanzado</option>
-                                        <option value="medico">Médico</option>
-                                        <option value="otro">Otro</option>                   
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="">Nivel de Certificación:</label>
-                                    <select class="form-select" name="nivelCertificacion" id="lang">
-                                        <option value="conocer">CONOCER ECO0307.01</option>
-                                        <option value="Universitario">Técnico Superior Universitario</option>
-                                        <option value="licenciatura">Licenciatura</option>
-                                        <option value="urgencias medicas">Técnico en Urgencias Médicas</option>
-                                        <option value="otro">Otro</option>                   
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label >Capacitación Continua:</label>
-                                    <select class="form-select" name="capacitacion" id="lang">
-                                        <option value="bls">BLS</option>
-                                        <option value="phtls">PHTLS</option>
-                                        <option value="acls">ACLS</option>
-                                        <option value="amls">AMLS</option>
-                                        <option value="pals">PALS</option>
-                                        <option value="nals">NALS</option>
-                                        <option value="pepp">PEPP</option>
-                                        <option value="gems">GEMS</option>
-                                        <option value="otros">Otros</option>                
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label >Años de Experiencia:</label>
-                                    <input type="text" class="form-control" name="experiencia" id="anios" aria-describedby="helpId" placeholder="Años de experiencia">
-                                </div>
-                                <div class="col-md-4">
-                                    <label >Municipio de Residencia</label>
-                                <select class="form-select" name="municipio" id="lang">
-                                    <option value="mexicali">Mexicali</option>
-                                    <option value="tecate">Tecate</option>
-                                    <option value="tijuana">Tijuana</option>
-                                    <option value="playas rosarito">Playas de Rosarito</option>
-                                    <option value="ensenada">Ensenada</option>
-                                    <option value="san quintin">San Quintín</option>
-                                    <option value="san felipe">San Felipe</option>              
-                                </select>
-                                </div>
-                                <br>
-                                <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>
-                                    <button type="submit" name="accion" value="eliminar" class="btn btn-danger">Borrar registro</button>
-                                </div>
-                            </div>               
-                        </form>
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
