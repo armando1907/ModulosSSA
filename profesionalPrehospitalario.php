@@ -251,7 +251,7 @@ if($_POST){
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Panel  de profesionales prehospitalarios
+                            Panel prehospitalarios
                         </div>
                         <div class="card-body">
                             <table id="datatablesSimple">
@@ -268,6 +268,7 @@ if($_POST){
                                     <th>Capacitación Continua</th>
                                     <th>Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
                                     <th>Municipio de Residencia</th>
+                                    <th>Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -285,30 +286,9 @@ if($_POST){
                                             <td><?php echo $profesional['experiencia'] ?></td>
                                             <td><?php echo $profesional['municipio'] ?></td>
                                             <td>  
-                                            <td>  
-                                            <a href="modificacionP.php?editar=<?php echo $profesional['id']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            </td>
-                                            <td>
+                                            <a href="javascript:window.open('modificacionP.php?editar=<?php echo $profesional['id']; ?>','','width=400,height=900,left=50,top=50,toolbar=yes');void 0"  class="btn btn-warning"><i class="fa fa-pencil"></i></a>
                                             <a href="profesionalPrehospitalario.php?borrar=<?php echo $profesional['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                             </td>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar registro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
                                             </td>
                                     <?php } ?>
                                         </tr>
@@ -319,7 +299,7 @@ if($_POST){
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">
               <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                <div class="text-muted">Copyright &copy; 2023</div>
                 <div>
                   <a href="#">&middot; Privacy Policy</a>
                   &middot;

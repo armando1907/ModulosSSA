@@ -396,6 +396,7 @@ if($_POST){
                                     <th>Representante Legal</th>
                                     <th>CURP</th>
                                     <th>Correo electrónico</th>
+                                    <th>Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -433,9 +434,7 @@ if($_POST){
                                             <td><?php echo $establecimientos['curpR'] ?></td>
                                             <td><?php echo $establecimientos['correoR'] ?></td>
                                             <td>  
-                                            <a href="modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            </td>
-                                            <td>
+                                            <a href="javascript:window.open('modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>','','width=900,height=900,left=50,top=50,toolbar=yes');void 0" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
                                             <a href="establecimientos.php?borrar=<?php echo $establecimientos['idEstablecimiento']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                             </td>
                                   <?php } ?>
@@ -448,7 +447,7 @@ if($_POST){
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; 2023</div>
                         <div>
                             <a href="#">&middot; Privacy Policy</a>
                             &middot;

@@ -10,6 +10,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <h1 align=center>Edición de registro</h1>
     <div class="container">
         <br>
         <br>
@@ -19,21 +20,27 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre">
                                 </div>
+                                <br>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="apellidop" id="nombre" aria-describedby="helpId" placeholder="Apellido Paterno">
                                 </div>
+                                <br>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" name="apellidom" id="nombre" aria-describedby="helpId" placeholder="Apellido Materno">
                                 </div>
+                                <br>
                                 <div class="col-md-4">
                                     <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electrónico">
                                 </div>
+                                <br>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de teléfono">
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-4">
                                     <label>Técnico en Atencion Medica Prehospitalaria:</label>
@@ -45,6 +52,7 @@
                                         <option value="otro">Otro</option>                   
                                     </select>
                                 </div>
+                                <br>
                                 <div class="col-md-4">
                                     <label class="">Nivel de Certificación:</label>
                                     <select class="form-select" name="nivelCertificacion" id="lang">
@@ -55,6 +63,7 @@
                                         <option value="otro">Otro</option>                   
                                     </select>
                                 </div>
+                                <br>
                                 <div class="col-md-4">
                                     <label >Capacitación Continua:</label>
                                     <select class="form-select" name="capacitacion" id="lang">
@@ -70,11 +79,13 @@
                                     </select>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-4">
                                     <label >Años de Experiencia:</label>
                                     <input type="text" class="form-control" name="experiencia" id="anios" aria-describedby="helpId" placeholder="Años de experiencia">
                                 </div>
+                                <br>
                                 <div class="col-md-4">
                                     <label >Municipio de Residencia</label>
                                 <select class="form-select" name="municipio" id="lang">
@@ -88,11 +99,10 @@
                                 </select>
                                 </div>
                                 <br>
-                                <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
+                            </div>   
+                            <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>
-                                    <button type="submit" name="accion" value="eliminar" class="btn btn-danger">Borrar registro</button>
-                                </div>
-                            </div>               
+                                </div>            
                         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

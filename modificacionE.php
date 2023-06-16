@@ -10,12 +10,12 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<h1 align=center>Edición de registro</h1>
 <div class="container">
     <br>
     <br>
 <form class="row g-3" action="" method="post">
                         <div class="row">
-                            
                             
                             <div class="col-md-6">
                                 <label class="" for="">Seleccione el tipo de establecimiento que registrará:</label>
@@ -190,15 +190,11 @@
                             <div class="col-md-8">
                                 <input class="form-control" type="text" name="correoR" id="correorepresestable" aria-describedby="helpId" placeholder="Correo electrónico">
                             </div>
-                            
-                            <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>
-
-                                    
-                            </div>
                         </div>                 
-                         
                         <br>
+                        <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
+                                    <button type="submit" name="accion" value="modificar" class="btn btn-warning">Editar registro</button>  
+                            </div>
                         
                                         
                                 </form>
