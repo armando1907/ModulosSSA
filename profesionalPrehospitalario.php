@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include('bd.php'); ?>
 
 <?php
@@ -20,6 +21,12 @@ if(!empty($_GET['id'])){
 if($_POST){
     $accion=$_POST['accion'];
     $id=$_POST['id'];
+=======
+<?php include('configuracion/bd.php'); ?>
+<?php
+if($_POST){
+    print_r($_POST);
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
     $nombre=$_POST['nombre'];
     $apellidop=$_POST['apellidop'];
     $apellidom=$_POST['apellidom'];
@@ -30,6 +37,7 @@ if($_POST){
     $capacitacion=$_POST['capacitacion'];
     $experiencia=$_POST['experiencia'];
     $municipio=$_POST['municipio'];
+<<<<<<< HEAD
     switch($accion){
         case 'insertar':
             $objConexion=new Conexion();
@@ -63,6 +71,22 @@ if($_POST){
 }
 ?>
 
+=======
+
+    $objConexion=new Conexion();
+    $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
+    $objConexion->ejecutar($sql);
+}
+
+$objConexion=new Conexion();
+$profesionales=$objConexion->Consultar("SELECT * FROM `profesional`");
+// print_r($profesionales);
+
+?>
+
+<!-- SELECT * FROM `profesional` -->
+
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -109,22 +133,35 @@ if($_POST){
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inicio</div>
+<<<<<<< HEAD
                                 <a class="nav-link" href="index.html">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Perfil
                                 </a>
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                    Modulos
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+                              
                                     <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario</a>
                                     <a class="nav-link" href="establecimientos.php">Establecimientos</a>
+                                
+                            
+=======
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Perfil
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Modulos</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Modulos
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario<a>
+                                    <a class="nav-link" href="establecimientos.html">Establecimientos</a>
                                 </nav>
                             </div>
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -135,28 +172,75 @@ if($_POST){
             </div>
             <div id="layoutSidenav_content">
                 <main>
+<<<<<<< HEAD
                     <?php //Ventana Modal ?>
+=======
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
                     <div class="container">
                         <h1 class="mt-4">Profesional Prehospitalario</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
                             <li class="breadcrumb-item active">Profesional Prehospitalario</li>
                         </ol>
+<<<<<<< HEAD
                         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<a href="registroP.php" class="btn btn-primary">
   Registrar de cursos prehospitalarios
-</button>
+</a>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Registro de curso prehospitalario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form class="row g-3" action="profesionalPrehospitalario.php" method="post" enctype="multipart/form-data">
+
+<br>
+                        <br>
+                        <?php//Tabla Bootstrap?>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Panel prehospitalarios
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido Paterno</th>
+                                    <th>Apellido Materno</th>
+                                    <th>Correo</th>
+                                    <th>Teléfono</th>
+                                    <th>Técnico en Atención Médica Prehospitalaria</th>
+                                    <th>Nivel de Certificación</th>
+                                    <th>Capacitación Continua</th>
+                                    <th>Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
+                                    <th>Municipio de Residencia</th>
+                                    <th>Editar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($profesionales as $profesional){ ?>
+                                        <tr>
+                                            <th scope="row"><?php echo $profesional['id'] ?></th>
+                                            <td><?php echo $profesional['nombre'] ?></td>
+                                            <td><?php echo $profesional['apellidoP'] ?></td>
+                                            <td><?php echo $profesional['apellidoM'] ?></td>
+                                            <td><?php echo $profesional['correo'] ?></td>
+                                            <td><?php echo $profesional['telefono'] ?></td>
+                                            <td><?php echo $profesional['nivelTecnico'] ?></td>
+                                            <td><?php echo $profesional['nivelCertificacion'] ?></td>
+                                            <td><?php echo $profesional['capacitacion'] ?></td>
+                                            <td><?php echo $profesional['experiencia'] ?></td>
+                                            <td><?php echo $profesional['municipio'] ?></td>
+                                            <td>  
+                                            
+                                            <a href="modificacionP.php?editar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre'] ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>"  class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                            <a href="eliminacionP.php?borrar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre']; ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                            </td>
+                                    <?php } ?>
+                                        </tr>
+                                </tbody>
+                            </table>                                    
+=======
+                        <form class="row g-3" action="profesionalPrehospitalario.php" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Id">
@@ -232,74 +316,81 @@ if($_POST){
                                     <option value="san felipe">San Felipe</option>              
                                 </select>
                                 </div>
-                                <br>
+                            
+                                
                                 <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="insertar" class="btn btn-success">Agregar registro</button>
+                                    <button type="submit" class="btn btn-success">Agregar registro</button>
+                                    <button type="button" class="btn btn-warning">Editar registro</button>
+                                    <button type="button" class="btn btn-danger">Borrar registro</button>
                                 </div>
-                            </div>               
+                            </div>
+                            
+                            
+                               
+                                          
                         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
                         <br>
-                        <?php//Tabla Bootstrap?>
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            Panel prehospitalarios
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                              Panel Profesional Prehospitalario
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-primary">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellido paterno</th>
+                                                    <th scope="col">Apellido Materno</th>
+                                                    <th scope="col">Correo electrónico</th>
+                                                    <th scope="col">Teléfono</th>
+                                                    <th scope="col">Técnico en Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Nivel de Certificación</th>
+                                                    <th scope="col">Capacitación Continua</th>
+                                                    <th scope="col">Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
+                                                    <th scope="col">Municipio de Residencia</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($profesionales as $profesional){ ?>
+                                                    <tr>
+                                                        <td><?php echo $profesional['id'] ?></td>
+                                                        <td><?php echo $profesional['nombre'] ?></td>
+                                                        <td><?php echo $profesional['apellidoP'] ?></td>
+                                                        <td><?php echo $profesional['apellidoM'] ?></td>
+                                                        <td><?php echo $profesional['correo'] ?></td>
+                                                        <td><?php echo $profesional['telefono'] ?></td>
+                                                        <td><?php echo $profesional['nivelTecnico'] ?></td>
+                                                        <td><?php echo $profesional['nivelCertificacion'] ?></td>
+                                                        <td><?php echo $profesional['capacitacion'] ?></td>
+                                                        <td><?php echo $profesional['experiencia'] ?></td>
+                                                        <td><?php echo $profesional['municipio'] ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div> 
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <table id="datatablesSimple">
-                                <thead>
-                                    <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido Paterno</th>
-                                    <th>Apellido Materno</th>
-                                    <th>Correo</th>
-                                    <th>Teléfono</th>
-                                    <th>Técnico en Atención Médica Prehospitalaria</th>
-                                    <th>Nivel de Certificación</th>
-                                    <th>Capacitación Continua</th>
-                                    <th>Años de Experiencia en el Sistema de Atención Médica Prehospitalaria</th>
-                                    <th>Municipio de Residencia</th>
-                                    <th>Editar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($profesionales as $profesional){ ?>
-                                        <tr>
-                                            <th scope="row"><?php echo $profesional['id'] ?></th>
-                                            <td><?php echo $profesional['nombre'] ?></td>
-                                            <td><?php echo $profesional['apellidoP'] ?></td>
-                                            <td><?php echo $profesional['apellidoM'] ?></td>
-                                            <td><?php echo $profesional['correo'] ?></td>
-                                            <td><?php echo $profesional['telefono'] ?></td>
-                                            <td><?php echo $profesional['nivelTecnico'] ?></td>
-                                            <td><?php echo $profesional['nivelCertificacion'] ?></td>
-                                            <td><?php echo $profesional['capacitacion'] ?></td>
-                                            <td><?php echo $profesional['experiencia'] ?></td>
-                                            <td><?php echo $profesional['municipio'] ?></td>
-                                            <td>  
-                                            <a href="javascript:window.open('modificacionP.php?editar=<?php echo $profesional['id']; ?>','','width=400,height=900,left=50,top=50,toolbar=yes');void 0"  class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            <a href="profesionalPrehospitalario.php?borrar=<?php echo $profesional['id']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                            </td>
-                                    <?php } ?>
-                                        </tr>
-                                </tbody>
-                            </table>                                    
+                    </div>
+                    
+                    
+            
+            
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
         </main>
         <br>
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">
               <div class="d-flex align-items-center justify-content-between small">
+<<<<<<< HEAD
                 <div class="text-muted">Copyright &copy; 2023</div>
+=======
+                <div class="text-muted">Copyright &copy; Your Website 2023</div>
+>>>>>>> f0f65a3a1eb303adf014f8af23ee456b72af1524
                 <div>
                   <a href="#">&middot; Privacy Policy</a>
                   &middot;

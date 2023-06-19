@@ -119,19 +119,13 @@ if($_POST){
                                     Perfil
                                 </a>
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                    Modulos
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+                               
                                     <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario</a>
                                     <a class="nav-link" href="establecimientos.php">Establecimientos</a>
-                                </nav>
+                               
                             </div>
                         </div>
-                    </div>
+                   
                     <div class="sb-sidenav-footer">
                         <div class="small">Inicio de Sesion como:</div>
                         Profesional Prehospitalario
@@ -148,213 +142,11 @@ if($_POST){
                             <li class="breadcrumb-item active">Establecimientos</li>
                         </ol>
                         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<a href="registroE.php" class="btn btn-primary">
   Registrar establecimiento
-</button>
+</a>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar registro de curso prehospitalario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-                        <form class="row g-3" action="" method="post">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="" for="">ID del establecimiento a registrar:</label>
-                                <input type="text" class="form-control" name="idEstablecimiento" id="idestablecimientos" aria-describedby="helpId" placeholder="Id">
-                            </div>
-                            <div class="col-md-4">
-                                <label class="" for="">Seleccione el tipo de establecimiento que registrará:</label>
-                                                <select class="form-select" name="tipoE" id="lang">
-                                                    <option value="Hospital">Hospital</option>
-                                                    <option value="Empresa de traslados">Empresa de Traslados</option>
-                                                    <option value="Asociación civil">Asociación Civil</option>
-                                                    <option value="Dependencia gubernamental">Dependencia Gubernamental</option>                
-                                                </select>
-                            </div>
-                            <div class="col-md-4">
-                            <label class="" for="">Nombre del establecimiento:</label>
-                            <br>
-                            <br>
-                           
-                                <input class="form-control" type="text"
-                                                name="establecimiento" id="empresatranslado" aria-describedby="helpId" placeholder="Nombre establecimiento">
-                            </div>
-                            
-                        </div>   
-                        <br>
-                        <br>
-                            <h5>Datos del Propietario:</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-4">
-                                
-                                    <input class="form-control" type="text"
-                                                     name="nombreP" id="nombrepropie" aria-describedby="helpId" placeholder="Nombre del Propietario o Razón Social">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control" type="text"
-                                    name="rfcP" id="rfcpropie" aria-describedby="helpId" placeholder="RFC">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control" type="text"
-                                                     name="curpP" id="curppropie" aria-describedby="helpId" placeholder="CURP">
-                                </div>
-                            </div>
-                            
-                           
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="direccionP" id="direccionpropie" aria-describedby="helpId" placeholder="Dirección">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="coloniaP" id="coloniapropie" aria-describedby="helpId" placeholder="Colonia">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="delegacionP" id="delegacionpropie" aria-describedby="helpId" placeholder="Delegación">
-                            </div>
-                        </div> 
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="localidadP" id="localidadpropie" aria-describedby="helpId" placeholder="Localidad">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                name="codigoP" id="codigopostalpropie" aria-describedby="helpId" placeholder="Código Postal">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="entidadP" id="entidadfepropie" aria-describedby="helpId" placeholder="Entidad Federativa">
-                            </div>
-                        </div> 
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                name="entreP" id="entercallepropie" aria-describedby="helpId" placeholder="Entre Calle y Calle">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="telefonoP" id="telefonopropie" aria-describedby="helpId" placeholder="Teléfono">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                 name="correoP" id="correopropie" aria-describedby="helpId" placeholder="Correo electrónico">
-                            </div>
-                        </div> 
-                        <br>
-                        <br>
-                            
-                            <h5>Datos del Establecimiento:</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-4">
-   
-                                           
-                                    <input class="form-control" type="text"
-                                     name="nombreE" id="nombreestable" aria-describedby="helpId" placeholder="Razón Social o Denominación del Establecimiento">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control" type="text"
-                                     name="rfcE" id="rfcestable" aria-describedby="helpId" placeholder="RFC">
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="form-control" type="text"
-                                                     name="direccionE" id="direccionestable" aria-describedby="helpId" placeholder="Dirección">
-                                </div>
-                            </div>
-                            
-                                 
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="coloniaE" id="coloniaestable" aria-describedby="helpId" placeholder="Colonia">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="delegacionE" id="delegacionestable" aria-describedby="helpId" placeholder="Delegación">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="localidadE" id="localidadestable" aria-describedby="helpId" placeholder="Dirección">
-                            </div>
-                        </div>         
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="codigoE" id="codigopostaestable" aria-describedby="helpId" placeholder="Código Postal">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="entidadE" id="entidadestable" aria-describedby="helpId" placeholder="Entidad Federativa">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="entreE" id="entrecalleestable" aria-describedby="helpId" placeholder="Entre Calle y Calle">
-                            </div>
-                        </div>            
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="telefonoE" id="telefonoestable" aria-describedby="helpId" placeholder="Teléfono">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                                 name="correoE" id="correoestable" aria-describedby="helpId" placeholder="Correo electrónico">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                name="horarioE" id="horarioestable" aria-describedby="helpId" placeholder="Horario">
-                            </div>
-                        </div>                 
-                        <div class="row">
-                           
-                            <div class="col-md-4">
-                                <input class="form-control" type="text"
-                                name="fechaE" id="fechaestable" aria-describedby="helpId" placeholder="Fecha de inicio de actividades">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text" name="nombreR" id="nomrepresestable" aria-describedby="helpId" placeholder="Nombre del Representante Legal">
-                            </div>
-                            <div class="col-md-4">
-                                <input class="form-control" type="text" name="curpR" id="curpreprestable" aria-describedby="helpId" placeholder="CURP">
-                            </div>
-                        </div>  
-                        <div class="row">
-                            
-                            <div class="col-md-4">
-                                <input class="form-control" type="text" name="correoR" id="correorepresestable" aria-describedby="helpId" placeholder="Correo electrónico">
-                            </div>
-                            <div class="col-md-4">
-                                <button type="submit" name="accion" value="insertar" class="btn btn-success">Agregar registro</button>
-                            </div>
-                        </div>                 
-                        <br>
-                        <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    
-                                </div>
-                                        
-                                </form>
-                                </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 <?php//Tabla Bootstrap?>
                     <div class="card mb-4">
                         <div class="card-header">
@@ -434,8 +226,8 @@ if($_POST){
                                             <td><?php echo $establecimientos['curpR'] ?></td>
                                             <td><?php echo $establecimientos['correoR'] ?></td>
                                             <td>  
-                                            <a href="javascript:window.open('modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>','','width=900,height=900,left=50,top=50,toolbar=yes');void 0" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            <a href="establecimientos.php?borrar=<?php echo $establecimientos['idEstablecimiento']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                            <a href="modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>&tipoE=<?php echo $establecimientos['tipoE'] ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>&nombreP=<?php echo $establecimientos['nombreP']?>&rfcP=<?php echo $establecimientos['rfcP']?>&curpP=<?php echo $establecimientos['curpP']?>&direccionP=<?php echo $establecimientos['direccionP']?>&coloniaP=<?php echo $establecimientos['coloniaP']?>&delegacionP=<?php echo $establecimientos['delegacionP']?>&localidadP=<?php echo $establecimientos['localidadP']?>&codigoP=<?php echo $establecimientos['codigoP']?>&entidadP=<?php echo $establecimientos['entidadP']?>&entreP=<?php echo $establecimientos['entreP']?>&telefonoP=<?php echo $establecimientos['telefonoP']?>&correoP=<?php echo $establecimientos['correoP']?>&nombreE=<?php echo $establecimientos['nombreE']?>&rfcE=<?php echo $establecimientos['rfcE']?>&direccionE=<?php echo $establecimientos['direccionE']?>&coloniaE=<?php echo $establecimientos['coloniaE']?>&delegacionE=<?php echo $establecimientos['delegacionE']?>&localidadE=<?php echo $establecimientos['localidadE']?>&codigoE=<?php echo $establecimientos['codigoE']?>&entidadE=<?php echo $establecimientos['entidadE']?>&entreE=<?php echo $establecimientos['entreE']?>&telefonoE=<?php echo $establecimientos['telefonoE']?>&correoE=<?php echo $establecimientos['correoE']?>&horarioE=<?php echo $establecimientos['horarioE']?>&fechaE=<?php echo $establecimientos['fechaE']?>&nombreR=<?php echo $establecimientos['nombreR']?>&curpR=<?php echo $establecimientos['curpR']?>&correoR=<?php echo $establecimientos['correoR']?>" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                            <a href="eliminacionE.php?borrar=<?php echo $establecimientos['idEstablecimiento']; ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                             </td>
                                   <?php } ?>
                                         </tr>

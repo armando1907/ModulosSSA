@@ -2,25 +2,13 @@
 
 <?php
 
-$id="";
 
-if($_GET){
-    $id=$_GET['editar'];
-    $nombre=$_GET['nombre'];
-    $apellidop=$_GET['apellidop'];
-    $apellidom=$_GET['apellidom'];
-    $correo=$_GET['correo'];
-    $telefono=$_GET['telefono'];
-    $nivelTecnico=$_GET['nivelTecnico'];
-    $nivelCertificacion=$_GET['nivelCertificacion'];
-    $capacitacion=$_GET['capacitacion'];
-    $experiencia=$_GET['experiencia'];
-    $municipio=$_GET['municipio'];
-}
+
+
+
 
 
 if($_POST){
-    $idInput=$_POST['id'];
     $accion=$_POST['accion'];
     $nombre=$_POST['nombre'];
     $apellidop=$_POST['apellidop'];
@@ -33,10 +21,9 @@ if($_POST){
     $experiencia=$_POST['experiencia'];
     $municipio=$_POST['municipio'];
     switch($accion){
-        case 'modificar':
-            //UPDATE `profesional` SET `nombre` = 'Modificado' WHERE `profesional`.`id` = 1;
+        case 'insertar':
             $objConexion=new Conexion();
-            $sql="UPDATE `profesional` SET `nombre` = '$nombre', `apellidoP` = '$apellidop', `apellidoM` = '$apellidom', `correo` = '$correo', `telefono` = '$telefono', `nivelTecnico`='$nivelTecnico',`nivelCertificacion`='$nivelCertificacion',`capacitacion`='$capacitacion',`experiencia` = '$experiencia',`municipio` = '$municipio' WHERE `profesional`.`id` =$idInput";
+            $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
             $objConexion->ejecutar($sql);
             header('Location: profesionalPrehospitalario.php');
         break;
@@ -45,72 +32,62 @@ if($_POST){
         break;
     } 
 }
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificacion</title>
+    <title>Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/estiloCampos.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/estiloCampos.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 align=center>Edición de registro</h1>
-    <div class="container">
-        <br>
-        <br>
-        <form class="row g-3" action="modificacionP.php" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                               
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="id" id="nombre" aria-describedby="helpId" value="<?php echo $id; ?>">
-                                </div>
-                              
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre" value="<?php echo $nombre; ?>">
-                                </div>
-                                <br>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="apellidop" id="nombre" aria-describedby="helpId" placeholder="Apellido Paterno" value="<?php echo $apellidop; ?>">
-                                </div>
-                                <br>
-                            </div>
-                            <br>
+    <br>
+    <br>
+<form class="row g-3" action="registroP.php" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="apellidom" id="nombre" aria-describedby="helpId" placeholder="Apellido Materno" value="<?php echo $apellidom; ?>">
+                                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre">
                                 </div>
-                                <br>
                                 <div class="col-md-4">
-                                    <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electrónico" value="<?php echo $correo; ?>">
+                                    <input type="text" class="form-control" name="apellidop" id="nombre" aria-describedby="helpId" placeholder="Apellido Paterno">
                                 </div>
-                                <br>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de teléfono" value="<?php echo $telefono; ?>">
+                                    <input type="text" class="form-control" name="apellidom" id="nombre" aria-describedby="helpId" placeholder="Apellido Materno">
                                 </div>
                             </div>
-                            <br>
                             <div class="row">
+                                
                                 <div class="col-md-4">
+                                    <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="Correo electrónico">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Numero de teléfono">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="experiencia" id="anios" aria-describedby="helpId" placeholder="Años de experiencia">
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                            <div class="col-md-4">
                                     <label>Técnico en Atencion Medica Prehospitalaria:</label>
-                                    <select class="form-select" name="nivelTecnico" id="lang" value="<?php echo $nivelTecnico; ?>">
+                                    <select class="form-select" name="nivelTecnico" id="lang">
                                         <option value="Básico">Nivel Básico</option>
                                         <option value="Intermedio">Nivel Intermedio</option>
                                         <option value="Avanzado">Nivel Avanzado</option>
                                         <option value="Médico">Médico</option>
-                                        <option value="otro">Otro</option>                   
+                                        <option value="Otro">Otro</option>                   
                                     </select>
                                 </div>
-                                <br>
                                 <div class="col-md-4">
                                     <label class="">Nivel de Certificación:</label>
-                                    <select class="form-select" name="nivelCertificacion" id="lang" value="<?php echo $nivelCertificacion; ?>">
+                                    <select class="form-select" name="nivelCertificacion" id="lang">
                                         <option value="CONOCER ECO0307.01">CONOCER ECO0307.01</option>
                                         <option value="T. Universitario">Técnico Superior Universitario</option>
                                         <option value="Licenciatura">Licenciatura</option>
@@ -118,10 +95,9 @@ if($_POST){
                                         <option value="Otro">Otro</option>                   
                                     </select>
                                 </div>
-                                <br>
                                 <div class="col-md-4">
                                     <label >Capacitación Continua:</label>
-                                    <select class="form-select" name="capacitacion" id="lang" value="<?php echo $capacitacion; ?>">
+                                    <select class="form-select" name="capacitacion" id="lang">
                                         <option value="BLS">BLS</option>
                                         <option value="PHTLS">PHTLS</option>
                                         <option value="ACLS">ACLS</option>
@@ -133,48 +109,28 @@ if($_POST){
                                         <option value="Otros">Otros</option>                
                                     </select>
                                 </div>
+                                
                             </div>
-                            <br>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <label >Años de Experiencia:</label>
-                                    <input type="text" class="form-control" name="experiencia" id="anios" aria-describedby="helpId" placeholder="Años de experiencia" value="<?php echo $experiencia; ?>">
-                                </div>
-                                <br>
+                                
                                 <div class="col-md-4">
                                     <label >Municipio de Residencia</label>
-                                <select class="form-select" name="municipio" id="lang" value="<?php echo $municipio; ?>">
+                                <select class="form-select" name="municipio" id="lang">
                                     <option value="Mexicali">Mexicali</option>
                                     <option value="Tecate">Tecate</option>
                                     <option value="Tijuana">Tijuana</option>
                                     <option value="Playas de Rosarito">Playas de Rosarito</option>
                                     <option value="Ensenada">Ensenada</option>
-                                    <option value="San Quintin">San Quintín</option>
+                                    <option value="San Quintín">San Quintín</option>
                                     <option value="San Felipe">San Felipe</option>              
                                 </select>
                                 </div>
-
                                 <br>
                                 <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="modificar" class="btn btn-success">Editar</button>
+                                    <button type="submit" name="accion" value="insertar" class="btn btn-success">Registrar</button>
                                     <button type="submit" name="accion" value="regresar" class="btn btn-danger">Regresar</button>
-                                    
-                                </div> 
                                 </div>
-                                
-                               
-                                
-                                
-                              
-                                      
+                            </div>               
                         </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>
