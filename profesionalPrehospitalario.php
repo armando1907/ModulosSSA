@@ -109,16 +109,22 @@ if($_POST){
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inicio</div>
-                                <a class="nav-link" href="index.html">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    Perfil
-                                </a>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Perfil
+                            </a>
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                              
-                                    <a class="nav-link" href="profesionalPrehospitalario.html">Profesional Prehospitalario</a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Modulos
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario<a>
                                     <a class="nav-link" href="establecimientos.php">Establecimientos</a>
-                                
-                            
+                                </nav>
+                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -137,10 +143,11 @@ if($_POST){
                             <li class="breadcrumb-item active">Profesional Prehospitalario</li>
                         </ol>
                         <!-- Button trigger modal -->
-<a href="registroP.php" class="btn btn-primary">
-  Registrar de cursos prehospitalarios
+<a href="javascript:window.open('registroP.php','','width=600,height=650,left=50,top=50,toolbar=yes');void 0" class="btn btn-primary">
+  Registro de cursos prehospitalarios
 </a>
-
+<a href="profesionalPrehospitalario.php" class="btn btn-warning"><img src="imagen/refres.png" height ="30" width="30">
+</a>
 
 <br>
                         <br>
@@ -184,8 +191,8 @@ if($_POST){
                                             <td><?php echo $profesional['municipio'] ?></td>
                                             <td>  
                                             
-                                            <a href="modificacionP.php?editar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre'] ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>"  class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            <a href="eliminacionP.php?borrar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre']; ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                            <a href="javascript:window.open('modificacionP.php?editar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre'] ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>','','width=800,height=400,left=50,top=50,toolbar=yes');void 0"class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:window.open('eliminacionP.php?borrar=<?php echo $profesional['id']; ?>&nombre=<?php echo $profesional['nombre']; ?>&apellidop=<?php echo $profesional['apellidoP']?>&apellidom=<?php echo $profesional['apellidoM']?>&correo=<?php echo $profesional['correo']?>&telefono=<?php echo $profesional['telefono']?>&nivelTecnico=<?php echo $profesional['nivelTecnico']?>&nivelCertificacion=<?php echo $profesional['nivelCertificacion']?>&capacitacion=<?php echo $profesional['capacitacion']?>&experiencia=<?php echo $profesional['experiencia']?>&municipio=<?php echo $profesional['municipio']?>','','width=600,height=300,left=50,top=50,toolbar=yes');void 0" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                             </td>
                                             </td>
                                     <?php } ?>

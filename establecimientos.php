@@ -109,23 +109,29 @@ if($_POST){
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+        <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inicio</div>
-                                <a class="nav-link" href="index.html">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    Perfil
-                                </a>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Perfil
+                            </a>
                             <div class="sb-sidenav-menu-heading">Modulos</div>
-                               
-                                    <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario</a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Modulos
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="profesionalPrehospitalario.php">Profesional Prehospitalario<a>
                                     <a class="nav-link" href="establecimientos.php">Establecimientos</a>
-                               
+                                </nav>
                             </div>
                         </div>
-                   
+                    </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Inicio de Sesion como:</div>
                         Profesional Prehospitalario
@@ -142,11 +148,13 @@ if($_POST){
                             <li class="breadcrumb-item active">Establecimientos</li>
                         </ol>
                         <!-- Button trigger modal -->
-<a href="registroE.php" class="btn btn-primary">
-  Registrar establecimiento
+<a href="javascript:window.open('registroE.php','','width=600,height=800,left=50,top=50,toolbar=yes');void 0" class="btn btn-primary">
+  Registro de establecimiento
 </a>
-
-
+<a href="establecimientos.php"  class="btn btn-warning"><img src="imagen/refres.png" height ="30" width="30">
+</a>
+<br>
+<br>
 <?php//Tabla Bootstrap?>
                     <div class="card mb-4">
                         <div class="card-header">
@@ -226,8 +234,8 @@ if($_POST){
                                             <td><?php echo $establecimientos['curpR'] ?></td>
                                             <td><?php echo $establecimientos['correoR'] ?></td>
                                             <td>  
-                                            <a href="modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>&tipoE=<?php echo $establecimientos['tipoE'] ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>&nombreP=<?php echo $establecimientos['nombreP']?>&rfcP=<?php echo $establecimientos['rfcP']?>&curpP=<?php echo $establecimientos['curpP']?>&direccionP=<?php echo $establecimientos['direccionP']?>&coloniaP=<?php echo $establecimientos['coloniaP']?>&delegacionP=<?php echo $establecimientos['delegacionP']?>&localidadP=<?php echo $establecimientos['localidadP']?>&codigoP=<?php echo $establecimientos['codigoP']?>&entidadP=<?php echo $establecimientos['entidadP']?>&entreP=<?php echo $establecimientos['entreP']?>&telefonoP=<?php echo $establecimientos['telefonoP']?>&correoP=<?php echo $establecimientos['correoP']?>&nombreE=<?php echo $establecimientos['nombreE']?>&rfcE=<?php echo $establecimientos['rfcE']?>&direccionE=<?php echo $establecimientos['direccionE']?>&coloniaE=<?php echo $establecimientos['coloniaE']?>&delegacionE=<?php echo $establecimientos['delegacionE']?>&localidadE=<?php echo $establecimientos['localidadE']?>&codigoE=<?php echo $establecimientos['codigoE']?>&entidadE=<?php echo $establecimientos['entidadE']?>&entreE=<?php echo $establecimientos['entreE']?>&telefonoE=<?php echo $establecimientos['telefonoE']?>&correoE=<?php echo $establecimientos['correoE']?>&horarioE=<?php echo $establecimientos['horarioE']?>&fechaE=<?php echo $establecimientos['fechaE']?>&nombreR=<?php echo $establecimientos['nombreR']?>&curpR=<?php echo $establecimientos['curpR']?>&correoR=<?php echo $establecimientos['correoR']?>" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                            <a href="eliminacionE.php?borrar=<?php echo $establecimientos['idEstablecimiento']; ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                            <a href="javascript:window.open('modificacionE.php?editar=<?php echo $establecimientos['idEstablecimiento']; ?>&tipoE=<?php echo $establecimientos['tipoE'] ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>&nombreP=<?php echo $establecimientos['nombreP']?>&rfcP=<?php echo $establecimientos['rfcP']?>&curpP=<?php echo $establecimientos['curpP']?>&direccionP=<?php echo $establecimientos['direccionP']?>&coloniaP=<?php echo $establecimientos['coloniaP']?>&delegacionP=<?php echo $establecimientos['delegacionP']?>&localidadP=<?php echo $establecimientos['localidadP']?>&codigoP=<?php echo $establecimientos['codigoP']?>&entidadP=<?php echo $establecimientos['entidadP']?>&entreP=<?php echo $establecimientos['entreP']?>&telefonoP=<?php echo $establecimientos['telefonoP']?>&correoP=<?php echo $establecimientos['correoP']?>&nombreE=<?php echo $establecimientos['nombreE']?>&rfcE=<?php echo $establecimientos['rfcE']?>&direccionE=<?php echo $establecimientos['direccionE']?>&coloniaE=<?php echo $establecimientos['coloniaE']?>&delegacionE=<?php echo $establecimientos['delegacionE']?>&localidadE=<?php echo $establecimientos['localidadE']?>&codigoE=<?php echo $establecimientos['codigoE']?>&entidadE=<?php echo $establecimientos['entidadE']?>&entreE=<?php echo $establecimientos['entreE']?>&telefonoE=<?php echo $establecimientos['telefonoE']?>&correoE=<?php echo $establecimientos['correoE']?>&horarioE=<?php echo $establecimientos['horarioE']?>&fechaE=<?php echo $establecimientos['fechaE']?>&nombreR=<?php echo $establecimientos['nombreR']?>&curpR=<?php echo $establecimientos['curpR']?>&correoR=<?php echo $establecimientos['correoR']?>','','width=600,height=800,left=50,top=50,toolbar=yes');void 0" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:window.open('eliminacionE.php?borrar=<?php echo $establecimientos['idEstablecimiento']; ?>&establecimiento=<?php echo $establecimientos['establecimiento'] ?>','','width=600,height=300,left=50,top=50,toolbar=yes');void 0" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                             </td>
                                   <?php } ?>
                                         </tr>

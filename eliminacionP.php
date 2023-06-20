@@ -17,10 +17,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="DELETE FROM `profesional` WHERE `profesional`.`id` =$idInput";
             $objConexion->ejecutar($sql);
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: javascript:window.close(eliminacionP.php)');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: javascript:window.close(eliminacionP.php)');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
     } 
 }

@@ -41,10 +41,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="INSERT INTO `establecimientos` (`idEstablecimiento`, `tipoE`, `establecimiento`, `nombreP`, `rfcP`, `curpP`, `direccionP`, `coloniaP`, `delegacionP`,`localidadP`,`codigoP`,`entidadP`,`entreP`,`telefonoP`,`correoP`,`nombreE`,`rfcE`,`direccionE`,`coloniaE`,`delegacionE`,`localidadE`,`codigoE`,`entidadE`,`entreE`,`telefonoE`,`correoE`,`horarioE`,`fechaE`,`nombreR`,`curpR`,`correoR`) VALUES (NULL, '$tipoE', '$establecimiento', '$nombreP', '$rfcP', '$curpP', '$direccionP', '$coloniaP', '$delegacionP','$localidadP','$codigoP','$entidadP','$entreP','$telefonoP','$correoP','$nombreE','$rfcE','$direccionE','$coloniaE','$delegacionE','$localidadE','$codigoE','$entidadE','$entreE','$telefonoE','$correoE','$horarioE','$fechaE','$nombreR','$curpR','$correoR');";
             $objConexion->ejecutar($sql);
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
 
     }
@@ -74,6 +78,7 @@ if($_POST){
 </head>
 <body>
     <br>
+    <h1 align=center>Registro de Establecimientos</h1>
     <br>
                         <form class="row g-3" action="registroE.php" method="post">
                         <div class="row">

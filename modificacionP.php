@@ -38,10 +38,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="UPDATE `profesional` SET `nombre` = '$nombre', `apellidoP` = '$apellidop', `apellidoM` = '$apellidom', `correo` = '$correo', `telefono` = '$telefono', `nivelTecnico`='$nivelTecnico',`nivelCertificacion`='$nivelCertificacion',`capacitacion`='$capacitacion',`experiencia` = '$experiencia',`municipio` = '$municipio' WHERE `profesional`.`id` =$idInput";
             $objConexion->ejecutar($sql);
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: profesionalPrehospitalario.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: profesionalPrehospitalario.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
     } 
 }
@@ -61,6 +65,7 @@ if($_POST){
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <br>
     <h1 align=center>Edición de registro</h1>
     <div class="container">
         <br>

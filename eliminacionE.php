@@ -17,10 +17,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="DELETE FROM `establecimientos` WHERE `establecimientos`.`idEstablecimiento` =$idInput";
             $objConexion->ejecutar($sql);
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
     } 
 }
@@ -64,6 +68,7 @@ if($_POST){
             <div class="col-md-4"></div>
                                 <div class="btn-group  col-md-4" role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="eliminar" class="btn btn-success">Borrar</button>
+
                                     <button type="submit" name="accion" value="regresar" class="btn btn-danger">Regresar</button>
                                 </div> 
             

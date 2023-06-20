@@ -25,10 +25,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="INSERT INTO `profesional` (`id`, `nombre`, `apellidoP`, `apellidoM`, `correo`, `telefono`, `nivelTecnico`, `nivelCertificacion`, `capacitacion`, `experiencia`, `municipio`) VALUES (NULL,'$nombre','$apellidop','$apellidom','$correo','$telefono','$nivelTecnico','$nivelCertificacion','$capacitacion','$experiencia','$municipio');";
             $objConexion->ejecutar($sql);
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: profesionalPrehospitalario.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: profesionalPrehospitalario.php');
+            //header('Location: profesionalPrehospitalario.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
     } 
 }
@@ -47,7 +51,8 @@ if($_POST){
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <br>
+<br>
+    <h1 align=center>Registro de Cursos Prehospitalario</h1>
     <br>
 <form class="row g-3" action="registroP.php" method="post" enctype="multipart/form-data">
                             <div class="row">

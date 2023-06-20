@@ -80,10 +80,14 @@ if($_POST){
             $objConexion=new Conexion();
             $sql="UPDATE `establecimientos` SET `tipoE`='$tipoE', `establecimiento` = '$establecimiento', `nombreP` = '$nombreP', `rfcP` = '$rfcP', `curpP` = '$curpP', `direccionP` = '$direccionP', `coloniaP`='$coloniaP', `delegacionP` = '$delegacionP',`localidadP` = '$localidadP',`codigoP`='$codigoP',`entidadP` = '$entidadP',`entreP` = '$entreP',`telefonoP` = '$telefonoP',`correoP` = '$correoP',`nombreE`='$nombreE',`rfcE`='$rfcE',`direccionE` = '$direccionE',`coloniaE` = '$coloniaE',`delegacionE` = '$delegacionE',`localidadE` = '$localidadE',`codigoE` = '$codigoE',`entidadE`='$entidadE',`entreE`='$entreE',`telefonoE`='$telefonoE',`correoE`= '$correoE',`horarioE`='$horarioE',`fechaE`='$fechaE',`nombreR` = '$nombreR',`curpR` = '$curpR',`correoR` = '$correoR' WHERE `establecimientos`.`idEstablecimiento` = $id";
             $objConexion->ejecutar($sql);
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
         case 'regresar':
-            header('Location: establecimientos.php');
+            //header('Location: establecimientos.php');
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+            exit();
         break;
 
     }
@@ -107,10 +111,9 @@ if($_POST){
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<br>
 <h1 align=center>Edición de registro</h1>
 <div class="container">
-    <br>
-    <br>
 <form class="row g-3" action="modificacionE.php" method="post">
                         <div class="row">
                         <div class="col-md-4">
