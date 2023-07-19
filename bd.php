@@ -2,14 +2,14 @@
 
 
 class conexion{
-    private $servidor="localhost";
-    private $usuario="root";
-    private $contrasenia="";
+    private $servidor="162.241.203.97";
+    private $usuario="crumbcco_Relacionnuevabase";
+    private $contrasenia="mQis38MNl8ad";
     private $conexion;
 
     public function __construct(){
         try{
-            $this->conexion=new PDO("mysql:host=$this->servidor;dbname=datassa3",$this->usuario,$this->contrasenia);
+            $this->conexion=new PDO("mysql:host=$this->servidor;dbname=crumbcco_datassa3",$this->usuario,$this->contrasenia);
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         }
